@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Visualization</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        .plot-container, .code-container {
+            flex: 1;
+            min-width: 300px;
+        }
+        .code-container {
+            max-width: 600px;
+        }
+        .code-section {
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            background-color: #f9f9f9;
+            overflow-x: auto;
+        }
+        pre {
+            margin: 0;
+            padding: 10px;
+            background: #282c34;
+            color: #f8f8f2;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <h1>Data Visualization</h1>
+    <form action="{% url 'visualize_data' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Run</button>
+    </form>
+
+    {% if plot_img %}
+        <div class="container">
+            <div class="plot-container">
+                <h2>Graphic:</h2>
+                <img src="data:image/png;base64,{{ plot_img }}" alt="Grafik">
+            </div>
+            <div class="code-container">
+                <h3>Code:</h3>
+                <div class="code-section">
+                    <pre>{{ code_snippet|safe }}</pre>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+</body>
+</html>
