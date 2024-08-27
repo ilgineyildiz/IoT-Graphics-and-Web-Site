@@ -9,9 +9,7 @@ def main():
         from django.core.management import execute_from_command_line
     except ImportError as exc:
         raise ImportError(
-            "Django'yu içe aktaramadım. Yüklü olduğundan ve "
-            "PYTHONPATH ortam değişkeninizde mevcut olduğundan emin misiniz? "
-            "Sanal ortamı etkinleştirmeyi mi unuttunuz?"
+            "Django is not imported in your environment."
         ) from exc
     execute_from_command_line(sys.argv)
 
