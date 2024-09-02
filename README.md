@@ -11,7 +11,7 @@ Before you start you should install these requirements on your environment:(info
 ### Purpose of the project:
 This project aims to create a web site and use the datas from an IoT device. In this website using the datas from device we create graphics to show the variance and changes in data.
 
-### Explainig the code and structure:
+### Explaining the code and structure:
 #### views.py file
 This file includes the graphics(which you can add more for your own preference) and the code snippet that shows on the website. 
 #### forms.py
